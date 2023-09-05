@@ -4,14 +4,13 @@ class Reuse {
 
     public static int numb;
 
-    public void reuse() {
+    public void reuse(Scanner scanner) {
         try {
             System.out.println("ENTER NUMBER");
-            Scanner num = new Scanner(System.in);
-            numb = num.nextInt();
+            numb = scanner.nextInt();
         } catch (Exception e) {
             System.out.println("enter valid number");
-            reuse();
+            reuse(scanner);
         }
     }
 }
@@ -38,8 +37,10 @@ class PalindromeCheck {
 }
 class IsPalindrome {
     public static void main(String[] arg) {
+        Scanner scanner = new Scanner(System.in);
         Reuse obj = new Reuse();
-        obj.reuse();
+        obj.reuse(scanner);
+        scanner.close();
         Reverse obj1 = new Reverse();
         PalindromeCheck obj2 = new PalindromeCheck();
         obj2.check(obj1.rev(Reuse.numb),Reuse.numb);
